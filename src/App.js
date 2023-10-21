@@ -4,10 +4,10 @@ import "dayjs/locale/fr";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { ConfigProvider } from "antd";
-import Connection from './connection-page';
-import Home from "./home-page"
+import Connection from './page/login/connection-page';
+import Home from "./page/home/home-page"
 import Layout from './layout';
-import RegistrationForm from './registration-form-page';
+import RegistrationForm from './page/signup/registration-form-page';
 import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
 

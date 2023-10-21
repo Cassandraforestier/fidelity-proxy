@@ -1,0 +1,33 @@
+.home-container {
+    background: linear-gradient(to right, #b4df9f, #285A43);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-top: 1.5em;
+    padding-left: 2.5em;
+    margin-top: 2em;
+    font-weight: bold;
+    font-size: large;
+}
+.text-home-container {
+    font-size: xx-large;
+}
+.bottom-container {
+    display: flex;
+    padding-bottom: 2em;
+}
+
+.side-left-bottom-container {
+    border-right: 1px solid black;
+    padding-right: 3em;
+}
+.side-right-bottom-container {
+    padding-left: 3em;
+}
+
+.certified-icon {
+    background-color: #b4df9f;
+    border-radius: 50%;
+    border: 1px solid #285A43;
+    padding: 10px;
+    width:fit-content;
+}

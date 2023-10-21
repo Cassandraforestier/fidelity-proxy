@@ -1,6 +1,58 @@
-.footer {
-  text-Align: center;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to right, #ffffff, #ade9cd);
+.demo-logo-vertical {
+  background-color: rgb(40, 90, 67) ;
+}
+
+.menu {
+    width: 200px;
+    float: left;
+    position: fixed;
+    border-radius: 15px;
+    margin-top: 20px
+}
+
+.menu > a {
+    position: relative;
+    top: 20px;
+    display: block;
+    text-decoration: none;
+    width: 80%;
+    height: 50px;
+    font-size:medium;
+    text-align: center;
+    float: right;
+    border-radius: 20px 0 0 20px;
+    margin-top: 20px;
+    line-height: 50px;
+    transition: color .5s;
+    color: white;
+}
+
+.menu > a.active {
+    color: rgb(40, 90, 67) ;
+    background-color: white;
+}
+
+.menu > a::after, .menu > a::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 20px;
+    height: 50px;
+    border-radius: 0 0 25px 0;
+    z-index: -1;
+}
+
+.menu > a::before {
+    top: auto;
+    bottom: -50px;
+    border-radius: 0 25px 0 0;
+}
+
+.menu > a.active::after {
+    box-shadow: 0 25px 0 0 white;
+}
+
+.menu > a.active::before {
+    box-shadow: 0 -25px 0 0 white;
 }

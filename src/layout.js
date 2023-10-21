@@ -1,80 +1,64 @@
 import "./layout.css";
 
 import { Button, Input } from "antd";
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import { PlusOutlined, UserOutlined } from "@ant-design/icons";
+import { Image, Layout } from 'antd';
+import { NavLink, Outlet } from "react-router-dom";
 
-import { Footer } from "antd/es/layout/layout";
-import { Menu } from "antd";
-import { useState } from "react";
+import React from 'react';
+import { UserOutlined } from '@ant-design/icons';
 
+const { Content, Footer, Sider } = Layout;
 const { Search } = Input;
 
-
-async function logout() {
-
-}
-
-const Layout = (props) => {
-    const [current, setCurrent] = useState("mail");
-    const navigate = useNavigate();
-
-    const publicItems = [
-        {
-            label: <Link to="/">Accueil</Link>,
-            key: "Home",
-        },
-        {
-            label: <Link to="/signup">Créer un compte</Link>,
-            key: "createAccount",
-            className: "menu-item-create",
-        },
-        {
-            label: <Link to="/login">Se connecter</Link>,
-            key: "loggin",
-        },
-    ];
-    function handleSearch(value) {
-
-    }
-
-    const onClick = (e) => {
-        setCurrent(e.key);
-    };
-
+const LayoutPage = (props) => {
     return (
-        <>
-            <div className="navbar">
-                {/* <Link to="/">
-                    <img alt="logo" src={image} className="logo" />
-                </Link> */}
+        <Layout style={{
+            backgroundColor: "rgb(40, 90, 67)"
+        }}>
 
-                <div className="menu-general">
-                    {props.isLogged ? (
-                        <Search
-                            placeholder="Rechercher un cosplay"
-                            allowClear
-                            onSearch={(fileList) => handleSearch(fileList)}
-                            className="search"
-                        />
-                    ) : null}
-                    <Menu
-                        onClick={onClick}
-                        selectedKeys={[current]}
-                        mode="horizontal"
-                        items={publicItems}
-                        className="menu"
-                    />
+            <Sider
+                breakpoint="lg"
+                collapsedWidth="0"
+                style={{ backgroundColor: "rgb(40, 90, 67)", marginTop: "5%" }}
+            >
+                <Image
+                    width={100}
+                    style={{ marginLeft: "3em" }}
+                    src={process.env.PUBLIC_URL + '/logo.png'}
+                />
+
+                <div className="menu">
+
+                    <NavLink to="/" className="menu-link" >Accueil</NavLink>
+                    <NavLink to="/signup" className="menu-link">Créer un compte</NavLink>
+                    <NavLink to="/login" className="menu-link">Se connecter</NavLink>
                 </div>
-            </div>
-            <Outlet />
-            <div className="clear"></div>
-            <Footer className="footer">
-                <hr />
-                Fidelity Proxy ©2023
-            </Footer>
-        </>
+
+
+            </Sider>
+            <Layout style={{ backgroundColor: "rgb(40, 90, 67)" }}>
+                <Content style={{ margin: '24px 0 0' }}>
+                    <div
+                        style={{
+                            padding: 24,
+                            paddingRight: 0,
+                            backgroundColor: "white",
+                            borderRadius: "25px",
+                            marginRight: "25px",
+                            minHeight: "800px"
+                        }}
+                    >
+                        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                            <Search placeholder="Rechercher ..." style={{ width: "80%" }} />
+                            <Button><UserOutlined /></Button>
+                        </div>
+                        <Outlet />
+                    </div>
+                </Content>
+                <Footer style={{ textAlign: 'center', backgroundColor: "rgb(40, 90, 67)", color: "white" }}>Fidelity Proxy ©2023 Created by <a href="#">this team</a></Footer>
+            </Layout>
+        </Layout>
     );
 };
 
-export default Layout;
+export default LayoutPage;
