@@ -12,9 +12,11 @@ const { Search } = Input;
 
 const _menuItems = {
     Consommateur: [
-      { to: "catalog", label: "Catalogue" },
-      { to: "cart", label: "Panier" },
-      { to: "fidelity", label: "Fidelité" }
+      { to: "proxymity", label: "A proximité" },
+      { to: "merchants", label: "Commerçants" },
+      { to: "category", label: "Catégories" },
+      { to: "fidelityPoints", label: "Points de fidélité" },
+      { to: "discount", label: "Coupons de réduction" }
     ],
     Commerçant: [
       { to: "products", label: "Mes produits" },

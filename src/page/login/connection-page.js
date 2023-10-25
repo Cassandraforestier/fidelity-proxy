@@ -15,7 +15,7 @@ const Connection = ( { setLogged, setUserType } ) => {
         console.log('Received values:', values);
         setLogged(true);
         navigate("/")
-        setUserType(USER_TYPE[2])
+        setUserType(USER_TYPE[1])
     };
 
     return (
