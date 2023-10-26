@@ -9,6 +9,7 @@ const DiscountPage = () => {
   const [displayQrCode, setDisplayQrCode] = useState(false);
   const [displayWelcomeQrCode, setDisplayWelcomeQrCode] = useState(false);
 
+  //pour afficher les qr code
   const handleGenerateWelcomeQrCode = () => {
     setDisplayWelcomeQrCode(!displayWelcomeQrCode);
   }
