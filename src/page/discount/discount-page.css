@@ -1,0 +1,39 @@
+.qrCode{
+    height: auto;
+    margin: 0 auto;
+    max-width: 10vw;
+    width: 100%;
+}
+
+.presentation-container{
+    background: linear-gradient(to right, #b4df9f, #285A43);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-top: 1.5em;
+    padding-left: 2.5em;
+    margin-top: 2em;
+    font-weight: bold;
+    font-size: large;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.presentation-text{
+    float: right;
+    margin-right: 20px;
+}
+.presentation-text p {
+    font-size: x-large;
+}
+.coupon-title{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vh;
+}
+.coupon-title-content{
+    margin-left: 1vw;
+}
+img{
+    height: 50vh;
+}

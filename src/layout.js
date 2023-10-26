@@ -11,21 +11,22 @@ const { Content, Footer, Sider } = Layout;
 const { Search } = Input;
 
 const _menuItems = {
-  Consommateur: [
-    { to: "catalog", label: "Tous les produits" },
-    { to: "category", label: "Par catégories" },
-    { to: "cart", label: "Panier" },
-    { to: "fidelity", label: "Fidelité" }
-  ],
-  Commerçant: [
-    { to: "products", label: "Mes produits" },
-    { to: "timeTable", label: "Mon emploi du temps" },
-    { to: "demands", label: "Mes demandes" }
-  ],
-  Gestionnaire: [
-    { to: "demands", label: "Les demandes" },
-    { to: "history", label: "Historique" }
-  ]
+    Consommateur: [
+      { to: "proxymity", label: "A proximité" },
+      { to: "merchants", label: "Commerçants" },
+      { to: "category", label: "Catégories" },
+      { to: "fidelityPoints", label: "Points de fidélité" },
+      { to: "discount", label: "Coupons de réduction" }
+    ],
+    Commerçant: [
+      { to: "products", label: "Mes produits" },
+      { to: "timeTable", label: "Mon emploi du temps" },
+      { to: "demands", label: "Mes demandes" }
+    ],
+    Gestionnaire: [
+        { to: "demands", label: "Les demandes" },
+        { to: "history", label: "Historique" }
+    ]
 }
 const LayoutPage = ({ logged, userType }) => {
   const navigate = useNavigate();
