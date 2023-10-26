@@ -3,6 +3,7 @@ import "dayjs/locale/fr";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import CategoriesList from './page/products-list/category-list';
 import { ConfigProvider } from "antd";
 import Connection from './page/login/connection-page';
 import Home from "./page/home/home-page"
@@ -43,6 +44,7 @@ function App() {
             <Route path='/signup' element={<RegistrationForm />} />
             <Route path='/profile' element={<UserProfile />} />
             <Route path='/catalog' element={<ProductsList />} />
+            <Route path='/category' element={<CategoriesList />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -12,7 +12,8 @@ const { Search } = Input;
 
 const _menuItems = {
   Consommateur: [
-    { to: "catalog", label: "Catalogue" },
+    { to: "catalog", label: "Tous les produits" },
+    { to: "category", label: "Par catégories" },
     { to: "cart", label: "Panier" },
     { to: "fidelity", label: "Fidelité" }
   ],
