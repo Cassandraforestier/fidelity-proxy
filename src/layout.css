@@ -1,5 +1,17 @@
+.layout {
+    background-color: rgb(40, 90, 67);
+}
+
 .demo-logo-vertical {
   background-color: rgb(40, 90, 67) ;
+}
+.menu-aside {
+    background-color: rgb(40, 90, 67) !important;
+    margin-top: 5%;
+}
+
+.logo-menu {
+    margin-left: 3em;
 }
 
 .menu {
@@ -55,4 +67,32 @@
 
 .menu > a.active::before {
     box-shadow: 0 -25px 0 0 white;
+}
+
+.main-container {
+    padding: 24px;
+    padding-right: 0px;
+    background-color: white;
+    border-radius: 25px;
+    margin-right: 25px;
+    min-height: 800px;
+}
+
+.layout-content {
+    margin: 24px 0 0 ;
+}
+
+.header-search-and-profile {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search-input {
+    width: 80%;
+}
+
+.footer {
+    text-align: center;
+    background-color: rgb(40, 90, 67);
+    color: white;
 }
