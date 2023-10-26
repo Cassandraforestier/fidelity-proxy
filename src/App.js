@@ -14,7 +14,6 @@ import UserProfile from './page/profile/userProfile-page';
 import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
 import { useState } from 'react';
-import UserProfile from './page/profile/userProfile-page';
 import DiscountPage from './page/discount/discount-page';
 
 
