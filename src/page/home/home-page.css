@@ -8,6 +8,32 @@
     font-weight: bold;
     font-size: large;
 }
+
+.title-about-us {
+    display: flex;
+    justify-content: center;
+}
+
+.paragraph-about-us {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    color: grey;
+}
+
+.about-us-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about-us-column{
+    width: 18em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .text-home-container {
     font-size: xx-large;
 }
@@ -30,4 +56,15 @@
     border: 1px solid #285A43;
     padding: 10px;
     width:fit-content;
+    font-size: 36px;
+    color: #285A43;
+    margin-bottom: 1em;
+}
+
+.title-about-us-column {
+    font-weight: bold;
+}
+
+.paragraph-column {
+    color: grey;
 }

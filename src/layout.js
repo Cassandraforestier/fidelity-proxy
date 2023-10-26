@@ -1,64 +1,94 @@
 import "./layout.css";
 
 import { Button, Input } from "antd";
-import { Image, Layout } from 'antd';
-import { NavLink, Outlet } from "react-router-dom";
+import { Image, Layout } from "antd";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
-import React from 'react';
-import { UserOutlined } from '@ant-design/icons';
+import React from "react";
+import { UserOutlined } from "@ant-design/icons";
 
 const { Content, Footer, Sider } = Layout;
 const { Search } = Input;
 
-const LayoutPage = (props) => {
-    return (
-        <Layout style={{
-            backgroundColor: "rgb(40, 90, 67)"
-        }}>
+const _menuItems = {
+  Consommateur: [
+    { to: "catalog", label: "Tous les produits" },
+    { to: "category", label: "Par catégories" },
+    { to: "cart", label: "Panier" },
+    { to: "fidelity", label: "Fidelité" }
+  ],
+  Commerçant: [
+    { to: "products", label: "Mes produits" },
+    { to: "timeTable", label: "Mon emploi du temps" },
+    { to: "demands", label: "Mes demandes" }
+  ],
+  Gestionnaire: [
+    { to: "demands", label: "Les demandes" },
+    { to: "history", label: "Historique" }
+  ]
+}
+const LayoutPage = ({ logged, userType }) => {
+  const navigate = useNavigate();
+  return (
+    <Layout
+      className="layout"
+    >
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        className="menu-aside"
+      >
+        <Image
+          width={100}
+          className="logo-menu"
+          src={process.env.PUBLIC_URL + "/logo.png"}
+        />
 
-            <Sider
-                breakpoint="lg"
-                collapsedWidth="0"
-                style={{ backgroundColor: "rgb(40, 90, 67)", marginTop: "5%" }}
-            >
-                <Image
-                    width={100}
-                    style={{ marginLeft: "3em" }}
-                    src={process.env.PUBLIC_URL + '/logo.png'}
-                />
+        <div className="menu">
+          <NavLink to="/" className="menu-link">
+            Accueil
+          </NavLink>
 
-                <div className="menu">
-
-                    <NavLink to="/" className="menu-link" >Accueil</NavLink>
-                    <NavLink to="/signup" className="menu-link">Créer un compte</NavLink>
-                    <NavLink to="/login" className="menu-link">Se connecter</NavLink>
-                </div>
-
-
-            </Sider>
-            <Layout style={{ backgroundColor: "rgb(40, 90, 67)" }}>
-                <Content style={{ margin: '24px 0 0' }}>
-                    <div
-                        style={{
-                            padding: 24,
-                            paddingRight: 0,
-                            backgroundColor: "white",
-                            borderRadius: "25px",
-                            marginRight: "25px",
-                            minHeight: "800px"
-                        }}
-                    >
-                        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-                            <Search placeholder="Rechercher ..." style={{ width: "80%" }} />
-                            <Button><UserOutlined /></Button>
-                        </div>
-                        <Outlet />
-                    </div>
-                </Content>
-                <Footer style={{ textAlign: 'center', backgroundColor: "rgb(40, 90, 67)", color: "white" }}>Fidelity Proxy ©2023 Created by <a href="#">this team</a></Footer>
-            </Layout>
-        </Layout>
-    );
+          {logged ? (
+            <>
+              {_menuItems[userType].map((label, id) => (
+                <>
+                  <NavLink to={label.to} key={id} className="menu-link">
+                    {label.label}
+                  </NavLink>
+                </>
+              ))}
+            </>
+          ) : (
+            <>
+              <NavLink to="/signup" className="menu-link">
+                Créer un compte
+              </NavLink>
+              <NavLink to="/login" className="menu-link">
+                Se connecter
+              </NavLink>
+            </>
+          )}
+        </div>
+      </Sider>
+      <Layout className="layout">
+        <Content className="layout-content">
+          <div className="main-container">
+            <div className="header-search-and-profile">
+              <Search placeholder="Rechercher ..." className="search-input" />
+              <Button onClick={() => navigate("/profile")}>
+                <UserOutlined />
+              </Button>
+            </div>
+            <Outlet />
+          </div>
+        </Content>
+        <Footer className="footer">
+          Fidelity Proxy ©2023 Created by <a href="#">this team</a>
+        </Footer>
+      </Layout>
+    </Layout>
+  );
 };
 
 export default LayoutPage;
