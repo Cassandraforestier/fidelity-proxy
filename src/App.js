@@ -3,16 +3,20 @@ import "dayjs/locale/fr";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import CategoriesList from './page/products-list/category-list';
 import { ConfigProvider } from "antd";
 import Connection from './page/login/connection-page';
 import Home from "./page/home/home-page"
 import Layout from './layout';
+import ProductsList from './page/products-list/productsList';
 import RegistrationForm from './page/signup/registration-form-page';
+import UserProfile from './page/profile/userProfile-page';
 import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
 import { useState } from 'react';
 import UserProfile from './page/profile/userProfile-page';
 import DiscountPage from './page/discount/discount-page';
+
 
 dayjs.locale("fr");
 const themeCustomValues = {
@@ -39,10 +43,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout logged={logged} userType={userType} />}>
             <Route index element={<Home logged={logged} />} />
-            <Route path='/login' element={<Connection setLogged={setLogged} setUserType={setUserType}/>} />
+            <Route path='/login' element={<Connection setLogged={setLogged} setUserType={setUserType} />} />
             <Route path='/signup' element={<RegistrationForm />} />
             <Route path='/profile' element={<UserProfile/>}/>
             <Route path='/discount' element={<DiscountPage/>}/>
+            <Route path='/profile' element={<UserProfile />} />
+            <Route path='/catalog' element={<ProductsList />} />
+            <Route path='/category' element={<CategoriesList />} />
           </Route>
         </Routes>
       </BrowserRouter>

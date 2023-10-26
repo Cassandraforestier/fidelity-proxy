@@ -29,21 +29,19 @@ const _menuItems = {
     ]
 }
 const LayoutPage = ({ logged, userType }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Layout
-      style={{
-        backgroundColor: "rgb(40, 90, 67)",
-      }}
+      className="layout"
     >
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
-        style={{ backgroundColor: "rgb(40, 90, 67)", marginTop: "5%" }}
+        className="menu-aside"
       >
         <Image
           width={100}
-          style={{ marginLeft: "3em" }}
+          className="logo-menu"
           src={process.env.PUBLIC_URL + "/logo.png"}
         />
 
@@ -55,9 +53,11 @@ const LayoutPage = ({ logged, userType }) => {
           {logged ? (
             <>
               {_menuItems[userType].map((label, id) => (
-                <NavLink to={label.to} key={id} className="menu-link">
-                  {label.label}
-                </NavLink>
+                <>
+                  <NavLink to={label.to} key={id} className="menu-link">
+                    {label.label}
+                  </NavLink>
+                </>
               ))}
             </>
           ) : (
@@ -72,20 +72,11 @@ const LayoutPage = ({ logged, userType }) => {
           )}
         </div>
       </Sider>
-      <Layout style={{ backgroundColor: "rgb(40, 90, 67)" }}>
-        <Content style={{ margin: "24px 0 0" }}>
-          <div
-            style={{
-              padding: 24,
-              paddingRight: 0,
-              backgroundColor: "white",
-              borderRadius: "25px",
-              marginRight: "25px",
-              minHeight: "800px",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-              <Search placeholder="Rechercher ..." style={{ width: "80%" }} />
+      <Layout className="layout">
+        <Content className="layout-content">
+          <div className="main-container">
+            <div className="header-search-and-profile">
+              <Search placeholder="Rechercher ..." className="search-input" />
               <Button onClick={() => navigate("/profile")}>
                 <UserOutlined />
               </Button>
@@ -93,13 +84,7 @@ const LayoutPage = ({ logged, userType }) => {
             <Outlet />
           </div>
         </Content>
-        <Footer
-          style={{
-            textAlign: "center",
-            backgroundColor: "rgb(40, 90, 67)",
-            color: "white",
-          }}
-        >
+        <Footer className="footer">
           Fidelity Proxy ©2023 Created by <a href="#">this team</a>
         </Footer>
       </Layout>

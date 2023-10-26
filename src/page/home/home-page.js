@@ -31,38 +31,31 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <Title style={{ display: "flex", justifyContent: "center" }}>A propos de nous</Title>
-                <Paragraph style={{ display: "flex", justifyContent: "center", fontSize: "16px", color: "grey" }}>Contribuez  à la vie de votre région en faisant vivre les commerces de proximité </Paragraph>
-                <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-
-                    <div style={{ width: "18em", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-                        <SafetyCertificateOutlined className="certified-icon" style={{ fontSize: "36px", color: "#285A43", marginBottom: "1em" }} />
-                        <p style={{ fontWeight: "bold" }}>Points de Fidélité</p>
-                        <Paragraph style={{ color: "grey" }}>
-
+                <Title className="title-about-us">A propos de nous</Title>
+                <Paragraph className="paragraph-about-us">Contribuez  à la vie de votre région en faisant vivre les commerces de proximité </Paragraph>
+                <div className="about-us-container">
+                    <div className="about-us-column">
+                        <SafetyCertificateOutlined className="certified-icon" />
+                        <p className="title-about-us-column">Points de Fidélité</p>
+                        <Paragraph className="paragraph-column" >
                             Gagnez des points de fidélité à chaque achat de produits locaux pour être récompensé lors de vos prochains achats.
                         </Paragraph>
 
                     </div>
-                    <div style={{ width: "18em", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} >
-                        <CheckOutlined className="certified-icon" style={{ fontSize: "36px", color: "#285A43", marginBottom: "1em" }} />
-                        <p style={{ fontWeight: "bold" }}>Certification</p>
-                        <Paragraph style={{ color: "grey" }}>
+                    <div className="about-us-column">
+                        <CheckOutlined className="certified-icon" />
+                        <p className="title-about-us-column">Certification</p>
+                        <Paragraph className="paragraph-column" >
                             Les commerçants peuvent soumettre leurs produits pour certification, assurant la qualité et l'authenticité des produits locaux.
                         </Paragraph>
                     </div>
-                    <div style={{ width: "18em", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-                        <PercentageOutlined className="certified-icon" style={{ fontSize: "36px", color: "#285A43", marginBottom: "1em" }} />
-                        <p style={{ fontWeight: "bold" }}>Coupons de réduction</p>
-                        <Paragraph style={{ color: "grey" }}>
+                    <div className="about-us-column">
+                        <PercentageOutlined className="certified-icon" />
+                        <p className="title-about-us-column">Coupons de réduction</p>
+                        <Paragraph className="paragraph-column" >
                             Échangez vos points de fidélité contre des coupons de réduction pour économiser sur vos achats de produits locaux préférés via Fidelity Proxy.
                         </Paragraph>
                     </div>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-
-
-
                 </div>
             </Content >
         </>

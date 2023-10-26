@@ -7,9 +7,9 @@ const USER_TYPE = [
     "Commerçant",
     "Consommateur",
     "Gestionnaire"
-  ]
+]
 
-const Connection = ( { setLogged, setUserType } ) => {
+const Connection = ({ setLogged, setUserType }) => {
     const navigate = useNavigate();
     const onFinish = (values) => {
         console.log('Received values:', values);
