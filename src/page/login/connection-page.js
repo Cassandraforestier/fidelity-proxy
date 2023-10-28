@@ -12,7 +12,6 @@ const USER_TYPE = [
 const Connection = ({ setLogged, setUserType }) => {
     const navigate = useNavigate();
     const onFinish = (values) => {
-        console.log('Received values:', values);
         setLogged(true);
         navigate("/")
         setUserType(USER_TYPE[1])

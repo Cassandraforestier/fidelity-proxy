@@ -1,22 +1,14 @@
-import { Card, Tag } from 'antd';
+import { Button, Card, Tag } from 'antd';
 import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
+const { Meta } = Card;
+
+
 const ProductsList = () => {
     const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
     useEffect(() => {
-        const fetchCategories = async () => {
-            try {
-                const response = await axios.get('http://localhost:4000/categories');
-                setCategories(response.data.categories);
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-            }
-        };
-
-        fetchCategories();
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/products');
@@ -30,24 +22,26 @@ const ProductsList = () => {
     }, []);
     return (
         <>
-            <h1>Catégories de produits</h1>
-            {categories.map((item) => (
-                <h1 key={item._id}>{item.name}</h1>
-            ))}
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <h1>Tous les produits</h1>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {products.map((item) => (
-                    <Card key={item._id} style={{ border: "1px solid grey", margin: '16px', maxWidth: "260px", flex: "1 1 calc(33.33% - 32px)" }}>
-                        {item.label ? <Tag color="green">Produit labellisé par Progville</Tag> : <Tag color="red">Produit non labellisé</Tag>}
+                    <Card
+                        hoverable
+                        key={item._id}
+                        style={{ border: "1px solid grey", margin: '16px', maxWidth: "260px", flex: "1 1 calc(33.33% - 32px)" }}
+                        cover={<img
+                            src={item.images[0]}
+                            alt={item.name}
+                            style={{ height: "200px" }}
+
+
+                        />}
+                    >
+                        {item.label ? <Tag color="green" style={{ position: "absolute", top: "8px", left: "8px" }}>Produit labellisé par Progville</Tag> : null}
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                            <img
-                                src={item.images[0]}
-                                alt={item.name}
-                                style={{ maxWidth: "200px" }}
-                            />
-                            <h2>{item.name}</h2>
-                            <p>{item.description}</p>
-                            <p>{item.category}</p>
-                            <p>{item.priceHT + item.tva} €</p>
+                            <Meta style={{ alignContent: "center", display: "flex", flexDirection: "column" }} title={item.name} description={item.description} />
+                            <p style={{ display: "flex", justifyContent: "center" }}>{item.priceHT + item.tva} €</p>
+                            <Button type='primary'>Réserver</Button>
                         </div>
 
 
