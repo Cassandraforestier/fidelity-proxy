@@ -16,6 +16,8 @@ import UserProfile from './page/profile/userProfile-page';
 import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
 import { useState } from 'react';
+import DiscountPage from './page/discount/discount-page';
+
 
 dayjs.locale("fr");
 const themeCustomValues = {
@@ -45,6 +47,8 @@ function App() {
             <Route index element={<Home logged={logged} />} />
             <Route path='/login' element={<Connection setLogged={setLogged} setUserType={setUserType} />} />
             <Route path='/signup' element={<RegistrationForm />} />
+            <Route path='/profile' element={<UserProfile/>}/>
+            <Route path='/discount' element={<DiscountPage/>}/>
             <Route path='/profile' element={<UserProfile />} />
             <Route path='/catalog' element={<ProductsList />} />
             <Route path='/category' element={<CategoriesList />} />
