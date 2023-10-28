@@ -76,6 +76,8 @@
     border-radius: 25px;
     margin-right: 25px;
     min-height: 800px;
+    display: flex;
+    flex-direction: column;
 }
 
 .layout-content {
