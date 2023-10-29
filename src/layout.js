@@ -13,9 +13,9 @@ const { Search } = Input;
 const _menuItems = {
   Consommateur: [
     { to: "map", label: "A proximité" },
-    { to: "retailers", label: "Commerçants" },
     { to: "catalog", label: "Tous les produits" },
     { to: "category", label: "Par catégories" },
+    { to: "vendors", label: "Commerçants" },
     { to: "cart", label: "Panier" },
     { to: "fidelity", label: "Mes points de fidelité" },
     { to: "discount", label: "Mes coupons" }
@@ -79,7 +79,7 @@ const LayoutPage = ({ logged, userType }) => {
           <div className="main-container">
             <div className="header-search-and-profile">
               {logged ? <><Search placeholder="Rechercher ..." className="search-input" />
-                <Button onClick={() => navigate("/profile")}>
+                <Button type="primary" onClick={() => navigate("/profile")}>
                   <UserOutlined />
                 </Button></> : null}
             </div>
