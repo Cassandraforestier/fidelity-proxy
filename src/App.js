@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
 import { useState } from 'react';
 import DiscountPage from './page/discount/discount-page';
+import FidelityPage from './page/fidelity/fidelity-page';
 
 
 dayjs.locale("fr");
@@ -35,6 +36,13 @@ function App() {
   const [logged, setLogged] = useState(false);
   //Connaitre le type d'utilisateur (client, commerçant, gestionaire) 
   const [userType, setUserType] = useState(null);
+  // const thresholds = [30, 60, 120, 240];
+  const thresholds = [
+    {threshold: 30, reduction: 10},
+    {threshold: 60, reduction: 20},
+    {threshold: 120, reduction: 30},
+    {threshold: 240, reduction: 40},
+  ]
 
   return (
     <ConfigProvider
@@ -48,8 +56,9 @@ function App() {
             <Route path='/login' element={<Connection setLogged={setLogged} setUserType={setUserType} />} />
             <Route path='/signup' element={<RegistrationForm />} />
             <Route path='/profile' element={<UserProfile/>}/>
-            <Route path='/discount' element={<DiscountPage/>}/>
+            <Route path='/discount' element={<DiscountPage thresholds={thresholds}/>}/>
             <Route path='/profile' element={<UserProfile />} />
+            <Route path='/fidelity' element={<FidelityPage thresholds={thresholds}/>} />
             <Route path='/catalog' element={<ProductsList />} />
             <Route path='/category' element={<CategoriesList />} />
             <Route path="/category/:category" element={<ProductsByCategory />} />

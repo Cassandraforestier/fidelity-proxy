@@ -1,0 +1,32 @@
+.fidelity-progress{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fidelity-container{
+    background: linear-gradient(to right, #b4df9f, #285A43);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-top: 1.5em;
+    padding-left: 2.5em;
+    /* margin-bottom: 2em; */
+    font-weight: bold;
+    font-size: large;
+    font-size: xx-large;
+}
+.fidelity-left-content{
+    margin-left: 5vw;
+}
+.fidelity-resume{
+    display: flex;
+    flex-direction: row;
+}
+#convertLocation{
+    margin-left: 1vw;
+    margin-top: 1vh;
+}
+
+#points{
+    font-size: x-large;
+}

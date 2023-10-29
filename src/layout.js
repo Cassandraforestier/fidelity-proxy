@@ -17,7 +17,8 @@ const _menuItems = {
     { to: "catalog", label: "Tous les produits" },
     { to: "category", label: "Par catégories" },
     { to: "cart", label: "Panier" },
-    { to: "discount", label: "Fidelité" }
+    { to: "fidelity", label: "Mes points de fidelité" },
+    { to: "discount", label: "Mes coupons" }
   ],
   Commerçant: [
     { to: "products", label: "Mes produits" },

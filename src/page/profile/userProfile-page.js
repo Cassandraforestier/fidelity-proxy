@@ -8,7 +8,7 @@ const UserProfile = () => {
     <>
         <Content>
             <div className='profile-page'>
-                <h1>Mon profile</h1>
+                <h1 id='profile-title'>Mon profile</h1>
 
                 <div className='information'>
                   <p>Nom:</p>
