@@ -58,7 +58,6 @@ function App() {
             <Route path='/signup' element={<RegistrationForm />} />
             <Route path='/profile' element={<UserProfile/>}/>
             <Route path='/discount' element={<DiscountPage thresholds={thresholds}/>}/>
-            <Route path='/profile' element={<UserProfile />} />
             <Route path='/fidelity' element={<FidelityPage thresholds={thresholds}/>} />
             <Route path='/catalog' element={<ProductsList />} />
             <Route path='/category' element={<CategoriesList />} />
