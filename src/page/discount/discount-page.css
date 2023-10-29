@@ -3,6 +3,8 @@
     margin: 0 auto;
     max-width: 10vw;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .presentation-container{
@@ -37,3 +39,31 @@
 img{
     height: 50vh;
 }
+.qrcode-button {
+    width: 20vw;
+}
+.souligne {
+    text-decoration: underline;
+    color: rgb(29, 29, 32);
+    cursor: pointer;
+}
+
+.qrCodeOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent pour créer un effet de superposition */
+    z-index: 999; /* Met l'élément au-dessus de tous les autres éléments */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .qrCodeExpanded {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Met l'élément au-dessus de l'overlay */
+  }
