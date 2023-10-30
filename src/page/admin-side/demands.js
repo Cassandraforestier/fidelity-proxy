@@ -1,7 +1,9 @@
+import { Avatar, Button, Collapse, List } from "antd";
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 
-import { Avatar, Button, List, Skeleton } from "antd";
+const { Panel } = Collapse;
 const DemandsList = () => {
   const [labelRequests, setlabelRequests] = useState([]);
   useEffect(() => {
@@ -16,21 +18,48 @@ const DemandsList = () => {
     fetchlabelRequest();
   }, []);
 
+
+  const onChange = (key) => {
+    console.log(key);
+  };
+
   return (
     <>
       <h1>Les demandes de certification : </h1>
       <List
         itemLayout="vertical"
         size="large"
-        pagination={{
-          onChange: (page) => {
-            console.log(page);
-          },
-          pageSize: 3,
-        }}
         dataSource={labelRequests}
-        renderItem={(labelRequest) => (
-          <List.Item
+        renderItem={(labelRequest) => {
+          const items = [
+            {
+              key: "1",
+              header: "Informations générales",
+              content: <><p>Produit à certifier : {labelRequest.productId.name}</p><p>Informations: {labelRequest.productId.description} </p><p>Prix : {labelRequest.productId.priceHT + labelRequest.productId.tva} €</p></>,
+            },
+            {
+              key: "2",
+              header: "Matériaux de fabrication",
+              content: <p>{labelRequest.materials}</p>,
+            },
+            {
+              key: "3",
+              header: "Procédures",
+              content: <p>{labelRequest.process}</p>,
+            },
+            {
+              key: "4",
+              header: "Factures",
+              content: (
+                <div>
+                  {labelRequest.invoices.map((image, index) => (
+                    <img key={index} src={image} alt={`Invoice ${index + 1}`} />
+                  ))}
+                </div>
+              ),
+            }
+          ];
+          return (<List.Item
             key={labelRequest.title}
             extra={
               <img
@@ -52,19 +81,24 @@ const DemandsList = () => {
               }
               description={
                 "Date : " +
-                labelRequest.vendorId?.createdAt +
-                " | Statut : " +
-                labelRequest.status +
-                " | Commentaire : " +
-                labelRequest.comment
-              }
+                labelRequest.vendorId?.createdAt}
             />
-            <Button type="primary">Valider</Button>
-            <Button type="primary" danger>
-              Refuser
-            </Button>
+            <Collapse>
+              {items.map((item) => (
+                <Panel header={item.header} key={item.key}>
+                  {item.content}
+                </Panel>
+              ))}
+            </Collapse>
+            <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
+              <Button type="primary">Valider</Button>
+              <Button type="primary" danger>
+                Refuser
+              </Button>
+            </div>
           </List.Item>
-        )}
+          )
+        }}
       />
     </>
   );
