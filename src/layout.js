@@ -17,30 +17,24 @@ const _menuItems = {
     { to: "category", label: "Par catégories" },
     { to: "vendors", label: "Commerçants" },
     { to: "cart", label: "Panier" },
-    { to: "fidelity", label: "Mes points de fidelité" },
-    { to: "discount", label: "Mes coupons" }
+    { to: "fidelity", label: "Points de fidelité" },
+    { to: "discount", label: "Mes coupons" },
   ],
   Commerçant: [
     { to: "products", label: "Mes produits" },
     { to: "timeTable", label: "Emploi du temps" },
-    { to: "demands", label: "Mes demandes" }
+    { to: "demands", label: "Mes demandes" },
   ],
   Gestionnaire: [
     { to: "demands", label: "Les demandes" },
-    { to: "history", label: "Historique" }
-  ]
-}
+    { to: "history", label: "Historique" },
+  ],
+};
 const LayoutPage = ({ logged, userType }) => {
   const navigate = useNavigate();
   return (
-    <Layout
-      className="layout"
-    >
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        className="menu-aside"
-      >
+    <Layout className="layout">
+      <Sider breakpoint="lg" collapsedWidth="0" className="menu-aside">
         <Image
           width={100}
           className="logo-menu"
@@ -78,10 +72,17 @@ const LayoutPage = ({ logged, userType }) => {
         <Content className="layout-content">
           <div className="main-container">
             <div className="header-search-and-profile">
-              {logged ? <><Search placeholder="Rechercher ..." className="search-input" />
-                <Button type="primary" onClick={() => navigate("/profile")}>
-                  <UserOutlined />
-                </Button></> : null}
+              {logged ? (
+                <>
+                  <Search
+                    placeholder="Rechercher ..."
+                    className="search-input"
+                  />
+                  <Button type="primary" onClick={() => navigate("/profile")}>
+                    <UserOutlined />
+                  </Button>
+                </>
+              ) : null}
             </div>
             <Outlet />
           </div>
