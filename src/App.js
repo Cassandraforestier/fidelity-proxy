@@ -20,6 +20,7 @@ import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
 import { useState } from 'react';
 import FidelityPage from './page/fidelity/fidelity-page';
+import CartsPage from './page/carts/carts-page';
 
 dayjs.locale("fr");
 const themeCustomValues = {
@@ -61,6 +62,7 @@ function App() {
             <Route path='/fidelity' element={<FidelityPage thresholds={thresholds}/>} />
             <Route path='/catalog' element={<ProductsList />} />
             <Route path='/category' element={<CategoriesList />} />
+            <Route path='/cart' element={<CartsPage />} />
             <Route path="/category/:category" element={<ProductsByCategory />} />
             <Route path='/vendors' element={<VendorList />} />
             <Route path="/vendors/products/:vendorId" element={<ProductsByVendor />} />
