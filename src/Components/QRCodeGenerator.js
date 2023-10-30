@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
+
 import QRCode from 'qrcode';
 
-function QRCodeGenerator({ data }) {
+function QRCodeGenerator({ data, width, height }) {
   useEffect(() => {
     const canvas = document.getElementById('qrcode');
 
-    QRCode.toCanvas(canvas, data, (error) => {
+    QRCode.toCanvas(canvas, data, { width, height }, (error) => {
       if (error) console.error(error);
     });
-  }, [data]);
+  }, [data, width, height]);
 
   return (
-    <canvas id="qrcode" width="200" height="200"></canvas>
+    <canvas id="qrcode" width={width} height={height}></canvas>
   );
 }
 
