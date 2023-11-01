@@ -21,6 +21,9 @@ import frFR from "antd/lib/locale/fr_FR";
 import { useState } from 'react';
 import FidelityPage from './page/fidelity/fidelity-page';
 import CartsPage from './page/carts/carts-page';
+import ScannerPage from './page/scanner/scanner-page';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 dayjs.locale("fr");
 const themeCustomValues = {
@@ -52,6 +55,7 @@ function App() {
       theme={themeCustomValues}
     >
       <BrowserRouter>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Layout logged={logged} userType={userType} />}>
             <Route index element={<Home logged={logged} />} />
@@ -67,6 +71,7 @@ function App() {
             <Route path='/vendors' element={<VendorList />} />
             <Route path="/vendors/products/:vendorId" element={<ProductsByVendor />} />
             <Route path='/map' element={<Map />} />
+            <Route path='/scanner' element={<ScannerPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

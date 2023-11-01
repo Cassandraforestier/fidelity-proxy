@@ -23,7 +23,8 @@ const _menuItems = {
   Commerçant: [
     { to: "products", label: "Mes produits" },
     { to: "timeTable", label: "Emploi du temps" },
-    { to: "demands", label: "Mes demandes" }
+    { to: "demands", label: "Mes demandes" },
+    { to: "scanner", label: "Mon scanner" },
   ],
   Gestionnaire: [
     { to: "demands", label: "Les demandes" },
