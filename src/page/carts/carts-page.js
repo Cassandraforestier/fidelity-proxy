@@ -2,7 +2,7 @@ import { Button, Card, Tag } from 'antd';
 import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
-import QRCodeGenerator from '../../Components/QRCodeGenerator';
+import QRCodeGenerator from '../../Components/QRCodeGenerator/QRCodeGenerator';
 
 const { Meta } = Card;
 
@@ -54,9 +54,9 @@ const CartsPage = () => {
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <Meta style={{ alignContent: "center", display: "flex", flexDirection: "column" }} title={item.name} description={item.description} />
                             <p style={{ display: "flex", justifyContent: "center" }}>{item.priceHT + item.tva} €</p>
-                            {/* {item.qrCode ? (
+                            {item.qrCode ? (
                                 <QRCodeGenerator data={item.qrCode}/>
-                            ) : (null)} */}
+                            ) : (null)}
                         </div>
 
 
