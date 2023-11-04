@@ -53,8 +53,8 @@ const DiscountPage = ( { thresholds } ) => {
         break; // Exit the loop when the threshold is not met
       }
     }
-  
-    return closestReduction;
+    console.log(typeof closestReduction);
+    return closestReduction.toString();
   };
   //pour afficher les qr code
   const handleGenerateWelcomeQrCode = () => {
@@ -164,14 +164,14 @@ const DiscountPage = ( { thresholds } ) => {
         </Button>
         {displayWelcomeQrCode ? (
           <div className="qrCode" onClick={toggleQrCode}>
-            <QRCode size={256} value={5} viewBox={`0 0 256 256`} />
+            <QRCode size={256} value={"5"} viewBox={`0 0 256 256`} />
             <span onClick={toggleQrCode} className="souligne">
               Agrandir le QR code
             </span>
             <QRCodeExpanded
               visible={overlayQrCode}
               onClose={toggleQrCode}
-              value={5}
+              value={"5"}
             />
           </div>
         ) : null}
