@@ -18,9 +18,13 @@ import UserProfile from "./page/profile/userProfile-page";
 import VendorList from "./page/vendors/vendors-list";
 import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
-import { useState } from "react";
-import FidelityPage from "./page/fidelity/fidelity-page";
 import DemandsList from "./page/admin-side/demands";
+import { useState } from 'react';
+import FidelityPage from './page/fidelity/fidelity-page';
+import CartsPage from './page/carts/carts-page';
+import ScannerPage from './page/scanner/scanner-page';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 dayjs.locale("fr");
 const themeCustomValues = {
@@ -48,41 +52,27 @@ function App() {
   return (
     <ConfigProvider locale={frFR} theme={themeCustomValues}>
       <BrowserRouter>
+        <ToastContainer />
         <Routes>
           <Route
             path="/"
             element={<Layout logged={logged} userType={userType} />}
           >
             <Route index element={<Home logged={logged} />} />
-            <Route
-              path="/login"
-              element={
-                <Connection setLogged={setLogged} setUserType={setUserType} />
-              }
-            />
-            <Route path="/signup" element={<RegistrationForm />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route
-              path="/discount"
-              element={<DiscountPage thresholds={thresholds} />}
-            />
-            <Route
-              path="/fidelity"
-              element={<FidelityPage thresholds={thresholds} />}
-            />
-            <Route path="/catalog" element={<ProductsList />} />
-            <Route path="/category" element={<CategoriesList />} />
-            <Route
-              path="/category/:category"
-              element={<ProductsByCategory />}
-            />
-            <Route path="/vendors" element={<VendorList />} />
-            <Route
-              path="/vendors/products/:vendorId"
-              element={<ProductsByVendor />}
-            />
+            <Route path='/login' element={<Connection setLogged={setLogged} setUserType={setUserType} />} />
+            <Route path='/signup' element={<RegistrationForm />} />
+            <Route path='/profile' element={<UserProfile/>}/>
+            <Route path='/discount' element={<DiscountPage thresholds={thresholds}/>}/>
+            <Route path='/fidelity' element={<FidelityPage thresholds={thresholds}/>} />
+            <Route path='/catalog' element={<ProductsList />} />
+            <Route path='/category' element={<CategoriesList />} />
+            <Route path='/cart' element={<CartsPage />} />
+            <Route path="/category/:category" element={<ProductsByCategory />} />
+            <Route path='/vendors' element={<VendorList />} />
+            <Route path="/vendors/products/:vendorId" element={<ProductsByVendor />} />
             <Route path="/demands" element={<DemandsList />} />
-            <Route path="/map" element={<Map />} />
+            <Route path='/map' element={<Map />} />
+            <Route path='/scanner' element={<ScannerPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
