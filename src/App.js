@@ -1,23 +1,24 @@
-import './App.css';
+import "./App.css";
 import "dayjs/locale/fr";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import CategoriesList from './page/products-list/category-list';
+import CategoriesList from "./page/products-list/category-list";
 import { ConfigProvider } from "antd";
-import Connection from './page/login/connection-page';
-import DiscountPage from './page/discount/discount-page';
-import Home from "./page/home/home-page"
-import Layout from './layout';
-import Map from './page/map/map';
-import ProductsByCategory from './page/products-list/productsByCategory';
-import ProductsByVendor from './page/vendors/products-by-vendor';
-import ProductsList from './page/products-list/productsList';
-import RegistrationForm from './page/signup/registration-form-page';
-import UserProfile from './page/profile/userProfile-page';
-import VendorList from "./page/vendors/vendors-list"
+import Connection from "./page/login/connection-page";
+import DiscountPage from "./page/discount/discount-page";
+import Home from "./page/home/home-page";
+import Layout from "./layout";
+import Map from "./page/map/map";
+import ProductsByCategory from "./page/products-list/productsByCategory";
+import ProductsByVendor from "./page/vendors/products-by-vendor";
+import ProductsList from "./page/products-list/productsList";
+import RegistrationForm from "./page/signup/registration-form-page";
+import UserProfile from "./page/profile/userProfile-page";
+import VendorList from "./page/vendors/vendors-list";
 import dayjs from "dayjs";
 import frFR from "antd/lib/locale/fr_FR";
+import DemandsList from "./page/admin-side/demands";
 import { useState } from 'react';
 import FidelityPage from './page/fidelity/fidelity-page';
 import CartsPage from './page/carts/carts-page';
@@ -36,28 +37,27 @@ const themeCustomValues = {
   },
 };
 function App() {
-
   //Savoir si l'utilisateur est conneté
   const [logged, setLogged] = useState(false);
-  //Connaitre le type d'utilisateur (client, commerçant, gestionaire) 
+  //Connaitre le type d'utilisateur (client, commerçant, gestionaire)
   const [userType, setUserType] = useState(null);
   // const thresholds = [30, 60, 120, 240];
   const thresholds = [
-    {threshold: 30, reduction: 10},
-    {threshold: 60, reduction: 20},
-    {threshold: 120, reduction: 30},
-    {threshold: 240, reduction: 40},
-  ]
+    { threshold: 30, reduction: 10 },
+    { threshold: 60, reduction: 20 },
+    { threshold: 120, reduction: 30 },
+    { threshold: 240, reduction: 40 },
+  ];
 
   return (
-    <ConfigProvider
-      locale={frFR}
-      theme={themeCustomValues}
-    >
+    <ConfigProvider locale={frFR} theme={themeCustomValues}>
       <BrowserRouter>
         <ToastContainer />
         <Routes>
-          <Route path="/" element={<Layout logged={logged} userType={userType} />}>
+          <Route
+            path="/"
+            element={<Layout logged={logged} userType={userType} />}
+          >
             <Route index element={<Home logged={logged} />} />
             <Route path='/login' element={<Connection setLogged={setLogged} setUserType={setUserType} />} />
             <Route path='/signup' element={<RegistrationForm />} />
@@ -70,6 +70,7 @@ function App() {
             <Route path="/category/:category" element={<ProductsByCategory />} />
             <Route path='/vendors' element={<VendorList />} />
             <Route path="/vendors/products/:vendorId" element={<ProductsByVendor />} />
+            <Route path="/demands" element={<DemandsList />} />
             <Route path='/map' element={<Map />} />
             <Route path='/scanner' element={<ScannerPage />} />
           </Route>

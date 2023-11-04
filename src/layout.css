@@ -1,100 +1,102 @@
 .layout {
-    background-color: rgb(40, 90, 67);
+  background-color: rgb(40, 90, 67);
 }
 
 .demo-logo-vertical {
-  background-color: rgb(40, 90, 67) ;
+  background-color: rgb(40, 90, 67);
 }
 .menu-aside {
-    background-color: rgb(40, 90, 67) !important;
-    margin-top: 5%;
+  background-color: rgb(40, 90, 67) !important;
+  margin-top: 5%;
 }
 
 .logo-menu {
-    margin-left: 3em;
+  margin-left: 3em;
 }
 
 .menu {
-    width: 200px;
-    float: left;
-    position: fixed;
-    border-radius: 15px;
-    margin-top: 20px
+  width: 200px;
+  float: left;
+  position: fixed;
+  border-radius: 15px;
+  margin-top: 20px;
+  position: absolute;
 }
 
 .menu > a {
-    position: relative;
-    top: 20px;
-    display: block;
-    text-decoration: none;
-    width: 80%;
-    height: 50px;
-    font-size:medium;
-    text-align: center;
-    float: right;
-    border-radius: 20px 0 0 20px;
-    margin-top: 20px;
-    line-height: 50px;
-    transition: color .5s;
-    color: white;
+  position: relative;
+  top: 20px;
+  display: block;
+  text-decoration: none;
+  width: 80%;
+  height: 50px;
+  font-size: medium;
+  text-align: center;
+  float: right;
+  border-radius: 20px 0 0 20px;
+  margin-top: 20px;
+  line-height: 50px;
+  transition: color 0.5s;
+  color: white;
 }
 
 .menu > a.active {
-    color: rgb(40, 90, 67) ;
-    background-color: white;
+  color: rgb(40, 90, 67);
+  background-color: white;
 }
 
-.menu > a::after, .menu > a::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: 0;
-    width: 20px;
-    height: 50px;
-    border-radius: 0 0 25px 0;
-    z-index: -1;
+.menu > a::after,
+.menu > a::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 20px;
+  height: 50px;
+  border-radius: 0 0 25px 0;
+  z-index: -1;
 }
 
 .menu > a::before {
-    top: auto;
-    bottom: -50px;
-    border-radius: 0 25px 0 0;
+  top: auto;
+  bottom: -50px;
+  border-radius: 0 25px 0 0;
 }
 
 .menu > a.active::after {
-    box-shadow: 0 25px 0 0 white;
+  box-shadow: 0 25px 0 0 white;
 }
 
 .menu > a.active::before {
-    box-shadow: 0 -25px 0 0 white;
+  box-shadow: 0 -25px 0 0 white;
 }
 
 .main-container {
-    padding: 24px;
-    padding-right: 0px;
-    background-color: white;
-    border-radius: 25px;
-    margin-right: 25px;
-    min-height: 800px;
-    display: flex;
-    flex-direction: column;
+  padding: 24px;
+  padding-right: 0px;
+  background-color: white;
+  border-radius: 25px;
+  margin-right: 25px;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
 }
 
 .layout-content {
-    margin: 24px 0 0 ;
+  margin: 24px 0 0;
 }
 
 .header-search-and-profile {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .search-input {
-    width: 80%;
+  width: 80%;
 }
 
 .footer {
-    text-align: center;
-    background-color: rgb(40, 90, 67);
-    color: white;
+  text-align: center;
+  background-color: rgb(40, 90, 67);
+  color: white;
 }
