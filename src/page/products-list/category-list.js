@@ -22,7 +22,7 @@ const CategoriesList = () => {
 
     return (
         <>
-            <h1>Catégories de produits</h1>
+            <h1 style={{ display: "flex", justifyContent: "center" }}>Catégories de produits</h1>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {categories.map((item) => (
                     <NavLink to={`/category/${item.name}`} key={item._id}><Card

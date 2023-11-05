@@ -25,8 +25,8 @@ const VendorList = () => {
     }, []);
     return (
         <>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                <Title level={2}>Près de chez vous</Title>
+            <h1 style={{ display: "flex", justifyContent: "center" }}>Près de chez vous</h1>
+            <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
                 {vendors.map((item) => (
                     <Card
                         hoverable

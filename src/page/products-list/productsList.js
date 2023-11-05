@@ -22,7 +22,7 @@ const ProductsList = () => {
     }, []);
     return (
         <>
-            <h1>Tous les produits</h1>
+            <h1 style={{ display: "flex", justifyContent: "center" }}>Tous les produits</h1>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {products.map((item) => (
                     <Card
