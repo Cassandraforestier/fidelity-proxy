@@ -26,7 +26,7 @@ const ProductsByVendor = () => {
             <div style={{ marginTop: "16px" }}>
                 <NavLink to='/vendors'><Button type="primary">Revenir à la liste des vendeurs</Button></NavLink>
             </div>
-            <h1>Les produits de *vendeur*</h1>
+            <h1 style={{ display: "flex", justifyContent: "center" }}>Les produits de *vendeur*</h1>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {products.map((product) => (
                     <Card

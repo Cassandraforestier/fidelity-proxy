@@ -1,16 +1,17 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Radio } from "antd";
+import React, { useState } from "react";
 
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const USER_TYPE = ["Commerçant", "Consommateur", "Gestionnaire"];
 
 const Connection = ({ setLogged, setUserType }) => {
   const navigate = useNavigate();
+  const [selectedUserType, setSelectedUserType] = useState(0);
   const onFinish = (values) => {
     setLogged(true);
     navigate("/");
-    setUserType(USER_TYPE[2]);
+    setUserType(USER_TYPE[selectedUserType]);
   };
 
   return (
@@ -54,6 +55,18 @@ const Connection = ({ setLogged, setUserType }) => {
           hasFeedback
         >
           <Input.Password />
+        </Form.Item>
+        <Form.Item label="Type d'utilisateur">
+          <Radio.Group
+            onChange={(e) => setSelectedUserType(e.target.value)}
+            value={selectedUserType}
+          >
+            {USER_TYPE.map((type, index) => (
+              <Radio key={index} value={index}>
+                {type}
+              </Radio>
+            ))}
+          </Radio.Group>
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">

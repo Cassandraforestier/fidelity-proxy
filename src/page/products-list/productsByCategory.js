@@ -29,7 +29,7 @@ const ProductsByCategory = (props) => {
             <div style={{ marginTop: "16px" }}>
                 <NavLink to='/category'><Button type="primary">Revenir aux catégories</Button></NavLink>
             </div>
-            <h1>Produits de la catégorie {category}</h1>
+            <h1 style={{ display: "flex", justifyContent: "center" }}>Produits de la catégorie {category}</h1>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {products.map((product) => (
                     <Card
