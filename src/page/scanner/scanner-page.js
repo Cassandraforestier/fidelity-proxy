@@ -25,7 +25,6 @@ const ScannerPage = () => {
             scanDelay={2000}
             onDecode={(result) => {
               result = JSON.parse(result);
-              toast.success(-result.threshold);
               axios_instence
                 .put("/costumers/fidelityPoints", {
                   userId: "653790802e9a8d5e86dd6a48",

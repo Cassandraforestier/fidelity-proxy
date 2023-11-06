@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const FidelityPage = ( { thresholds } ) => {
   const frontColor = "#285a43";
 //   const thresholds = [30, 60, 120, 240];
-  const axios_instense = axios.create({ baseURL: "http://127.0.0.1:4000" });
+  const axios_instense = axios.create({ baseURL: "https://127.0.0.1:4000" });
   const [fidelityPoints, setFidelityPoints] = useState(null);
   useEffect(() => {
     axios_instense

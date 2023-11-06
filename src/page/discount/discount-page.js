@@ -13,7 +13,7 @@ const DiscountPage = ( { thresholds } ) => {
   const [fidelityPoints, setFidelityPoints] = useState(null);
   const [overlayQrCode, setOverlayQrCode] = useState(false);
   const axios_instence = axios.create({ baseURL: "https://localhost:4000" });
-  const subscribeQrCodeValue = '{"reduction": 5, "threshold": 10}';
+  const subscribeQrCodeValue = '{"reduction": 5, "threshold": 0}';
 
   useEffect(() => {
     axios_instence
