@@ -1,32 +1,58 @@
-import { QrScanner } from '@yudiel/react-qr-scanner'
-import axios from 'axios';
-import React from 'react'
-import { toast } from 'react-toastify';
+import { QrScanner } from "@yudiel/react-qr-scanner";
+import axios from "axios";
+import React from "react";
+import { toast } from "react-toastify";
+import "./scanner-page.css";
 
 const ScannerPage = () => {
-    const axios_instence = axios.create({ baseURL: "https://localhost:4000" });
+  const [reductionValue, setReductionValue] = React.useState(null);
+  // const axios_instence = axios.create({ baseURL: "https://localhost:4000" });
+  const axios_instence = axios.create({ baseURL: "https://192.168.1.134:4000" });
   return (
     <>
-    <div style={{width: "50%", height: "auto"}}>
-        <QrScanner
+      <div className="presentation-container">
+        <div className="presentation-text">
+          <h1>Mon scanner</h1>
+          <p>Vous pouvez scanner le Qr code de votre client afin de connaitre la réduction à effectuer</p>
+        </div>
+        <div className="presentation-img">
+          <img src="assets/plante.png" alt="plant decoration" />
+        </div>
+      </div>
+      <div className="scanner-container">
+        <div className="scanner">
+          <QrScanner
+            scanDelay={2000}
             onDecode={(result) => {
-                console.log(result);
-                toast.success(result);
-                // axios_instence.put("/FidelityPoints/1", {
-                //     "points": 99
-                // }).then((res) => {
-                //     console.log(res);
-                // }).catch((err) => {
-                //     console.log(err);
-                // })
+              result = JSON.parse(result);
+              toast.success(-result.threshold);
+              axios_instence
+                .put("/costumers/fidelityPoints", {
+                  userId: "653790802e9a8d5e86dd6a48",
+                  fidelityPoints: -result.threshold,
+                })
+                .then((res) => {
+                  toast.success("Les points ont bien été débités");
+                  console.log(res);
+                  setReductionValue(result.reduction)
+                })
+                .catch((err) => {
+                  console.log(err);
+                  // toast.error(JSON.stringify(err));
+                });
             }}
-            onError={(error) => console.log(error?.message)}
-        />
-    </div>
+            onError={(error) => toast.error(error?.message)}
+          />
+        </div>
+        {reductionValue ? (
+          <div className="scanner-text">
+            <p>Les points ont bien été débités du compte client. Vous devez octroyer une réduction de -{reductionValue}%</p>
+          </div>
+        ) : (null)}
 
-      
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ScannerPage
+export default ScannerPage;

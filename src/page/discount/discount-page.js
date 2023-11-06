@@ -12,7 +12,8 @@ const DiscountPage = ( { thresholds } ) => {
   const [displayWelcomeQrCode, setDisplayWelcomeQrCode] = useState(false);
   const [fidelityPoints, setFidelityPoints] = useState(null);
   const [overlayQrCode, setOverlayQrCode] = useState(false);
-  const axios_instence = axios.create({ baseURL: "http://localhost:4000" });
+  const axios_instence = axios.create({ baseURL: "https://localhost:4000" });
+  const subscribeQrCodeValue = '{"reduction": 5, "threshold": 10}';
 
   useEffect(() => {
     axios_instence
@@ -27,34 +28,24 @@ const DiscountPage = ( { thresholds } ) => {
       });
   }, [fidelityPoints]);
 
-  //fonction qui retourne la valeur du coupon de réduction
-  // const convertPointsToReductionValue = (fidelityPoints) => {
-  //   let pourcentage = null;
-  //   thresholds.some((threshold) => {
-  //     if (fidelityPoints >= threshold.threshold) {
-  //       pourcentage = threshold.reduction;
-  //       return true;
-  //     }
-  //     return false;
-  //   })
-
-  //   return pourcentage;
-  // };
   const convertPointsToReductionValue = (loyaltyPoints) => {
+    let qrCodeValue = {
+      "threshold": -999,
+      "reduction": -999
+    };
     // Sort the array in ascending order of threshold
     thresholds.sort((a, b) => a.threshold - b.threshold);
   
-    let closestReduction = thresholds[0].reduction;
-  
     for (let i = 0; i < thresholds.length; i++) {
       if (loyaltyPoints >= thresholds[i].threshold) {
-        closestReduction = thresholds[i].reduction;
+        qrCodeValue = thresholds[i];
       } else {
         break; // Exit the loop when the threshold is not met
       }
     }
-    console.log(typeof closestReduction);
-    return closestReduction.toString();
+    console.log(qrCodeValue);
+    return qrCodeValue;
+    // return closestReduction.toString();
   };
   //pour afficher les qr code
   const handleGenerateWelcomeQrCode = () => {
@@ -97,11 +88,11 @@ const DiscountPage = ( { thresholds } ) => {
             <p>Coupon</p>
           </div>
         </div>
-        {fidelityPoints >= thresholds[0].threshold ? (
+        {55 >= thresholds[0].threshold ? (
           <>
             <p>
               Félicitation ! Vous avez obtenu un coupon de{" "}
-              {convertPointsToReductionValue(fidelityPoints)} % sur votre
+              {convertPointsToReductionValue(fidelityPoints).reduction} % sur votre
               prochain achat. Cliquez sur le bouton en dessous pour générer
               votre QR code
             </p>
@@ -123,7 +114,7 @@ const DiscountPage = ( { thresholds } ) => {
           <div className="qrCode" onClick={toggleQrCode}>
             <QRCode
               size={256}
-              value={convertPointsToReductionValue(fidelityPoints)}
+              value={JSON.stringify(convertPointsToReductionValue(fidelityPoints))}
               viewBox={`0 0 256 256`}
             />
             <span onClick={toggleQrCode} className="souligne">
@@ -132,7 +123,7 @@ const DiscountPage = ( { thresholds } ) => {
             <QRCodeExpanded
               visible={overlayQrCode}
               onClose={toggleQrCode}
-              value={convertPointsToReductionValue(fidelityPoints)}
+              value={JSON.stringify(convertPointsToReductionValue(fidelityPoints))}
             />
           </div>
         ) : null}
@@ -164,14 +155,14 @@ const DiscountPage = ( { thresholds } ) => {
         </Button>
         {displayWelcomeQrCode ? (
           <div className="qrCode" onClick={toggleQrCode}>
-            <QRCode size={256} value={"5"} viewBox={`0 0 256 256`} />
+            <QRCode size={256} value={subscribeQrCodeValue} viewBox={`0 0 256 256`} />
             <span onClick={toggleQrCode} className="souligne">
               Agrandir le QR code
             </span>
             <QRCodeExpanded
               visible={overlayQrCode}
               onClose={toggleQrCode}
-              value={"5"}
+              value={subscribeQrCodeValue}
             />
           </div>
         ) : null}
