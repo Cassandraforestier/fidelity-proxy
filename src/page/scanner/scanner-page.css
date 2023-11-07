@@ -1,0 +1,42 @@
+.scanner{
+    width: 25vw;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 10vh;
+}
+.scanner-container {
+    position: relative;
+    height: 100vh;
+}
+.scanner-content h1 {
+    display: flex;
+    justify-content: center;
+    color: #285a43;
+}
+
+.scanner > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.presentation-container{
+    background: linear-gradient(to right, #b4df9f, #285A43);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-top: 1.5em;
+    padding-left: 2.5em;
+    margin-top: 2em;
+    font-weight: bold;
+    font-size: large;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.scanner-text p{ 
+    font-size: 20px;
+}
