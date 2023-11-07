@@ -43,7 +43,6 @@ const DiscountPage = ( { thresholds } ) => {
         break; // Exit the loop when the threshold is not met
       }
     }
-    console.log(qrCodeValue);
     return qrCodeValue;
     // return closestReduction.toString();
   };
@@ -88,7 +87,7 @@ const DiscountPage = ( { thresholds } ) => {
             <p>Coupon</p>
           </div>
         </div>
-        {55 >= thresholds[0].threshold ? (
+        {fidelityPoints >= thresholds[0].threshold ? (
           <>
             <p>
               Félicitation ! Vous avez obtenu un coupon de{" "}
@@ -125,6 +124,8 @@ const DiscountPage = ( { thresholds } ) => {
               onClose={toggleQrCode}
               value={JSON.stringify(convertPointsToReductionValue(fidelityPoints))}
             />
+            <p>Réduction : {convertPointsToReductionValue(fidelityPoints).reduction}%</p>
+            <p>Points de fidélité qui seront utilisés: {convertPointsToReductionValue(fidelityPoints).threshold}</p>
           </div>
         ) : null}
         <div className="coupon-title">
@@ -164,6 +165,8 @@ const DiscountPage = ( { thresholds } ) => {
               onClose={toggleQrCode}
               value={subscribeQrCodeValue}
             />
+            <p>Réduction : 5%</p>
+            <p>Points de fidélité qui sera utilisé: Gratuit</p>
           </div>
         ) : null}
       </div>
