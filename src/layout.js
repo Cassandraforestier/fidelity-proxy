@@ -25,6 +25,7 @@ const _menuItems = {
     { to: "timeTable", label: "Emploi du temps" },
     { to: "demands", label: "Mes demandes" },
     { to: "scanner", label: "Mon scanner" },
+    { to: "labelRequestForm", label: "Formulaire certification produit"},
   ],
   Gestionnaire: [
     { to: "demands", label: "Les demandes" },

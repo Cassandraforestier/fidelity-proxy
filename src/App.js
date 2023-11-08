@@ -23,6 +23,7 @@ import { useState } from 'react';
 import FidelityPage from './page/fidelity/fidelity-page';
 import CartsPage from './page/carts/carts-page';
 import ScannerPage from './page/scanner/scanner-page';
+import LabelRequestForm from './page/label-request-form/label-request-form';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -73,6 +74,7 @@ function App() {
             <Route path="/demands" element={<DemandsList />} />
             <Route path='/map' element={<Map />} />
             <Route path='/scanner' element={<ScannerPage />} />
+            <Route path='/labelRequestForm' element={<LabelRequestForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
