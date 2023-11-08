@@ -82,19 +82,33 @@ const Map = () => {
       <Content>
         <div className="home-container">
           <div className="text-home-container">
-            <p>Cherchez des commerçants et artisans</p>
-            <p>A proximité de votre position</p>
+          <p style={{
+                    fontFamily: 'Helvetica, Arial, ',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    color: '#333',
+                    lineHeight: '1.5',
+                    margin: '10px 0',
+                    textShadow: '0 0 5px rgba(255, 255, 255, 0.7)',
+                  }}>Explorez les meilleures adresses artisanales <span style={{color: 'white',}}>certifiées par Progville</span> sur notre carte interactive. Trouvez des services de qualité et des produits exceptionnels à portée de main !</p>
+
           </div>
           <div className="bottom-container">
-            <div style={{ maxHeight: "50%" }}>
-              <Search
-                placeholder="Entrez le nom du ville..."
-                allowClear
-                enterButton="Search"
-              />
+          <div style={{ maxHeight: "100%" }}>
+  <Search
+    placeholder="Entrez le nom de la ville..."
+    allowClear
+    enterButton="Rechercher"
+    style={{ width: '130%', /* Modifiez la largeur selon vos besoins */
+    padding: '10px',
+    borderradius: '5px',
+    }}
+  />
+</div>
+
             </div>
           </div>
-        </div>
+     
       </Content>
       <div
         style={{
@@ -106,7 +120,9 @@ const Map = () => {
         <MapContainer
           center={[43.7, 7.25]}
           zoom={13}
-          style={{ height: "500px", width: "50%" }}
+          style={{ height: "450px", width: "80%",
+          border: "1px solid #ccc",
+          borderRadius: "10px", }}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {niceMarkers.map((marker, index) => (
