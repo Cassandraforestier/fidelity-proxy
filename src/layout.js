@@ -25,10 +25,12 @@ const _menuItems = {
     { to: "timeTable", label: "Emploi du temps" },
     { to: "demands", label: "Mes demandes" },
     { to: "scanner", label: "Mon scanner" },
+    { to: "skillLabel", label: "Certification" }
   ],
   Gestionnaire: [
     { to: "demands", label: "Les demandes" },
     { to: "history", label: "Historique" },
+    { to: "skillLabelList", label: "Certification" }
   ],
 };
 const LayoutPage = ({ logged, userType }) => {
