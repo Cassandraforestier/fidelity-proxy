@@ -1,7 +1,7 @@
 import { Avatar, Button, Collapse, List } from "antd";
 import React, { useEffect, useState } from "react";
 
-import axios from "axios";
+import axiosInstence from "../../tools/axiosInstence";
 
 const { Panel } = Collapse;
 const DemandsList = () => {
@@ -9,7 +9,7 @@ const DemandsList = () => {
   useEffect(() => {
     const fetchlabelRequest = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/labelRequest");
+        const response = await axiosInstence.get("/labelRequest");
         setlabelRequests(response.data.labelRequest);
       } catch (error) {
         console.error("Error fetching labelRequest:", error);
@@ -25,7 +25,7 @@ const DemandsList = () => {
 
   return (
     <>
-      <h1>Les demandes de certification : </h1>
+      <h1>Demandes de certification de savoir faire : </h1>
       <List
         itemLayout="vertical"
         size="large"

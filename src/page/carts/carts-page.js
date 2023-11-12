@@ -1,8 +1,8 @@
 import { Button, Card, Tag } from 'antd';
 import React, { useEffect, useState } from 'react';
 
-import axios from 'axios';
 import QRCodeGenerator from '../../Components/QRCodeGenerator/QRCodeGenerator';
+import axiosInstence from '../../tools/axiosInstence';
 
 const { Meta } = Card;
 
@@ -12,14 +12,14 @@ const CartsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const orders = await axios.get('http://localhost:4000/carts').then((res) =>{
+                const orders = await axiosInstence.get('/carts').then((res) =>{
                     if(res.status === 200){
                         return res.data.orders;
                     }
                 });
                 // setProducts(response.data.product);
                 orders.forEach(async (order) => {
-                    await axios.get(`http://localhost:4000/products/${order.productId}`).then((res) => {
+                    await axiosInstence.get(`/products/${order.productId}`).then((res) => {
                         if(res.status === 200){
                             setProducts((prevProducts) => [...prevProducts, res.data.product]);
                         }
@@ -54,9 +54,9 @@ const CartsPage = () => {
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <Meta style={{ alignContent: "center", display: "flex", flexDirection: "column" }} title={item.name} description={item.description} />
                             <p style={{ display: "flex", justifyContent: "center" }}>{item.priceHT + item.tva} €</p>
-                            {item.qrCode ? (
+                            {/* {item.qrCode ? (
                                 <QRCodeGenerator data={item.qrCode}/>
-                            ) : (null)}
+                            ) : (null)} */}
                         </div>
 
 

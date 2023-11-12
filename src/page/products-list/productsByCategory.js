@@ -4,7 +4,7 @@ import { Button, Card, Tag } from 'antd';
 import { NavLink, useParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
-import axios from 'axios';
+import axiosInstence from "../../tools/axiosInstence";
 
 const { Meta } = Card;
 
@@ -14,7 +14,7 @@ const ProductsByCategory = (props) => {
     useEffect(() => {
         const fetchProductsByCategory = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/products/category/${category}`);
+                const response = await axiosInstence.get(`/products/category/${category}`);
                 setProducts(response.data.products);
                 console.log("res", response)
             } catch (error) {

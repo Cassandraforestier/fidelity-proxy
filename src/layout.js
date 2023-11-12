@@ -30,7 +30,7 @@ const _menuItems = {
   Gestionnaire: [
     { to: "demands", label: "Les demandes" },
     { to: "history", label: "Historique" },
-    { to: "skillLabelList", label: "Certification" }
+    // { to: "skillLabelList", label: "Certification" }
   ],
 };
 const LayoutPage = ({ logged, userType }) => {

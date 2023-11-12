@@ -3,6 +3,7 @@ import { Link, NavLink, useParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
+import axiosInstence from '../../tools/axiosInstence';
 
 const { Meta } = Card;
 const ProductsByVendor = () => {
@@ -11,7 +12,7 @@ const ProductsByVendor = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/vendors/products/${vendorId}`);
+                const response = await axiosInstence.get(`/vendors/products/${vendorId}`);
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

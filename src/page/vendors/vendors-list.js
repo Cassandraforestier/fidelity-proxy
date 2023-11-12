@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 import { NavLink } from "react-router-dom";
 import Title from "antd/es/skeleton/Title";
-import axios from 'axios';
+import axiosInstence from "../../tools/axiosInstence";
 
 const { Meta } = Card;
 const VendorList = () => {
@@ -14,7 +14,7 @@ const VendorList = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/vendors');
+                const response = await axiosInstence.get('/vendors');
                 setVendors(response.data.vendors);
             } catch (error) {
                 console.error('Error fetching data:', error);

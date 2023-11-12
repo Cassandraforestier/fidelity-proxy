@@ -4,19 +4,18 @@ import "./discount-page.css";
 import { Button } from "antd";
 import QRCode from "react-qr-code";
 import { CheckOutlined } from "@ant-design/icons";
-import axios from "axios";
 import QRCodeExpanded from "../../Components/QRCodeExpanded";
+import axiosInstence from "../../tools/axiosInstence";
 
 const DiscountPage = ( { thresholds } ) => {
   const [displayQrCode, setDisplayQrCode] = useState(false);
   const [displayWelcomeQrCode, setDisplayWelcomeQrCode] = useState(false);
   const [fidelityPoints, setFidelityPoints] = useState(null);
   const [overlayQrCode, setOverlayQrCode] = useState(false);
-  const axios_instence = axios.create({ baseURL: "https://localhost:4000" });
   const subscribeQrCodeValue = '{"reduction": 5, "threshold": 0}';
 
   useEffect(() => {
-    axios_instence
+    axiosInstence
       .get(`/costumers/fidelityPoints?userId=653790802e9a8d5e86dd6a48`)
       .then((res) => {
         if (res.status === 200) {

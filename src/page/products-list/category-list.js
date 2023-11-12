@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react';
 
 import { Card } from 'antd';
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
+import axiosInstence from "../../tools/axiosInstence";
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/categories');
+                const response = await axiosInstence.get('/categories');
                 setCategories(response.data.categories);
             } catch (error) {
                 console.error('Error fetching categories:', error);

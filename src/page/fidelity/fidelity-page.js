@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./fidelity-page.css";
 import { Button, Timeline } from "antd";
-import axios from "axios";
 import { NavLink } from "react-router-dom";
+import axiosInstence from "../../tools/axiosInstence";
 
 const FidelityPage = ( { thresholds } ) => {
   const frontColor = "#285a43";
-//   const thresholds = [30, 60, 120, 240];
-  const axios_instense = axios.create({ baseURL: "https://127.0.0.1:4000" });
   const [fidelityPoints, setFidelityPoints] = useState(null);
   useEffect(() => {
-    axios_instense
+    axiosInstence
       .get(`/costumers/fidelityPoints?userId=653790802e9a8d5e86dd6a48`)
       .then((res) => {
         if (res.status === 200) {

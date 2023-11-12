@@ -1,7 +1,6 @@
 import { Button, Form, Input, message } from "antd";
 import React, { useState } from "react";
-
-import axios from "axios";
+import axiosInstence from "../../tools/axiosInstence";
 
 const SkillLabelForm = () => {
     const [form] = Form.useForm();
@@ -20,7 +19,7 @@ const SkillLabelForm = () => {
                 comment: values.comment,
             };
 
-            const response = await axios.post("http://localhost:4000/skillLabel", requestData);
+            const response = await axiosInstence.post("/skillLabel", requestData);
 
             if (response.data.success) {
                 message.success("Demande de label de savoir-faire ajoutée avec succès.");

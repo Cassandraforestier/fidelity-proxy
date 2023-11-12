@@ -1,7 +1,7 @@
 import { Avatar, Button, Collapse, List } from "antd";
 import React, { useEffect, useState } from "react";
 
-import axios from "axios";
+import axiosInstence from "../../tools/axiosInstence";
 
 const { Panel } = Collapse;
 
@@ -11,7 +11,7 @@ const SkillLabelList = () => {
     useEffect(() => {
         const fetchSkillLabels = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/skillLabel");
+                const response = await axiosInstence.get("/skillLabel");
                 setSkillLabels(response.data.skillLabels);
             } catch (error) {
                 console.error("Error fetching skillLabels:", error);

@@ -2,6 +2,7 @@ import { Button, Card, Tag } from 'antd';
 import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
+import axiosInstence from '../../tools/axiosInstence';
 
 const { Meta } = Card;
 
@@ -11,7 +12,7 @@ const ProductsList = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/products');
+                const response = await axiosInstence.get('/products');
                 setProducts(response.data.product);
             } catch (error) {
                 console.error('Error fetching data:', error);
